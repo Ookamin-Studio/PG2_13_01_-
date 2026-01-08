@@ -11,11 +11,8 @@ public:
 	void KillAll();
 	void RespownAll();
 
-private:
-	static bool globalAlive; 
-
 public:
-	bool isAlive_ = true;
+	static bool allAlive;
 	Vector2 pos_ = { 0,0 };
 	int speedX_ = 0;
 	int speedY_ = 0;

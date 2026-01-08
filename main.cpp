@@ -2,6 +2,8 @@
 #include"Enemy.h"
 #include"player.h"
 
+bool Enemy::allAlive=true;
+
 //当たり判定用関数
 bool CheckDistance(Vector2 c1, int r1, Vector2 c2, int r2) {
 	int dx = c2.x - c1.x;
@@ -51,12 +53,11 @@ int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int) {
 		//当たり判定
 		if (CheckDistance(enemyA->pos_, enemyA->radius_, player->bullet_->pos_, player->bullet_->radius_)||
 			CheckDistance(enemyB->pos_, enemyB->radius_, player->bullet_->pos_, player->bullet_->radius_)) {
-			enemyA->KillAll();
+			enemyA->allAlive=false;
 		}
 		//リスポーン
 		if (Novice::CheckHitKey(DIK_R)) {
 			enemyA->RespownAll();
-			enemyB->RespownAll();
 		}
 #pragma endregion
 
@@ -65,8 +66,8 @@ int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int) {
 		enemyA->Draw();
 		enemyB->Draw();
 		player->Draw();
-		Novice::ScreenPrintf(10, 10, "Enemy A isAlive: %d", enemyA->isAlive_);
-		Novice::ScreenPrintf(10, 30, "Enemy B isAlive: %d", enemyB->isAlive_);
+		Novice::ScreenPrintf(10, 10, "Enemy A isAlive: %d", enemyA->allAlive);
+		Novice::ScreenPrintf(10, 30, "Enemy B isAlive: %d", enemyB->allAlive);
 #pragma endregion
 
 		// フレームの終了
