@@ -26,11 +26,3 @@ void Enemy::Draw() {
 		Novice::DrawEllipse(pos_.x, pos_.y, radius_, radius_, 0.0f, RED, kFillModeSolid);
 	}
 }
-
-void Enemy::KillAll() {
-	allAlive = false;
-}
-
-void Enemy::RespownAll() {
-	allAlive = true;
-}

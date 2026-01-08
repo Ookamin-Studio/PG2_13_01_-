@@ -57,7 +57,7 @@ int WINAPI WinMain(_In_ HINSTANCE, _In_opt_ HINSTANCE, _In_ LPSTR, _In_ int) {
 		}
 		//リスポーン
 		if (Novice::CheckHitKey(DIK_R)) {
-			enemyA->RespownAll();
+			enemyA->allAlive = true;
 		}
 #pragma endregion
 

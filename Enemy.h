@@ -8,8 +8,6 @@ public:
 
 	void Update();
 	void Draw();
-	void KillAll();
-	void RespownAll();
 
 public:
 	static bool allAlive;
